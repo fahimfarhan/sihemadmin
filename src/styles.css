@@ -1,23 +1,13 @@
-.message {
-  border-radius: 20px;
-  margin: 0 15px 10px;
-  padding: 15px 20px;
-  position: relative;
-  font-weight: bold;
-}
-.message.to {
-  background-color: #00b300; 
-  color: #ffffff;
-  margin-left: 100px;
-  text-align: right;
-}
-.message.from {
-  background-color: #0066ff;
-  color: #ffffff;
-  margin-right: 100px;
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";
 
-}
-.message.to + .message.to,
-.message.from + .message.from {
-  margin-top: -10px;
+app-root {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }

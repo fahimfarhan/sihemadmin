@@ -1,7 +1,15 @@
-export const environment = {
-  production: false,
+// This file can be replaced during build by using the `fileReplacements` array.
+// `ng build ---prod` replaces `environment.ts` with `environment.prod.ts`.
+// The list of file replacements can be found in `angular.json`.
 
-  dialogflow: {
-    angularBot:  '62e98be0089f4e44b2ea09c42e2490e2' 
-  }
+export const environment = {
+  production: false
 };
+
+/*
+ * In development mode, for easier debugging, you can ignore zone related error
+ * stack frames such as `zone.run`/`zoneDelegate.invokeTask` by importing the
+ * below file. Don't forget to comment it out in production mode
+ * because it will have a performance impact when errors are thrown
+ */
+// import 'zone.js/dist/zone-error';  // Included with Angular CLI.

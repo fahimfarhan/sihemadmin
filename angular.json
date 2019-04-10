@@ -3,17 +3,17 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "chatbot": {
+    "spring-boot-websocket-chat-application-client": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
-      "prefix": "",
+      "prefix": "app",
       "schematics": {},
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/chatbot",
+            "outputPath": "dist/spring-boot-websocket-chat-application-client",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -23,16 +23,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css",
-              "node_modules/primeicons/primeicons.css",
-  "node_modules/primeng/resources/themes/nova-light/theme.css",
-  "node_modules/primeng/resources/primeng.min.css"
+              "src/styles.css"
             ],
-            "scripts": [
-              
-
-            ],
-            "es5BrowserSupport": true
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -50,32 +43,25 @@
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true,
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
-                }
-              ]
+              "buildOptimizer": true
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "chatbot:build"
+            "browserTarget": "spring-boot-websocket-chat-application-client:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "chatbot:build:production"
+              "browserTarget": "spring-boot-websocket-chat-application-client:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "chatbot:build"
+            "browserTarget": "spring-boot-websocket-chat-application-client:build"
           }
         },
         "test": {
@@ -109,20 +95,19 @@
         }
       }
     },
-    "chatbot-e2e": {
+    "spring-boot-websocket-chat-application-client-e2e": {
       "root": "e2e/",
       "projectType": "application",
-      "prefix": "",
       "architect": {
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "chatbot:serve"
+            "devServerTarget": "spring-boot-websocket-chat-application-client:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "chatbot:serve:production"
+              "devServerTarget": "spring-boot-websocket-chat-application-client:serve:production"
             }
           }
         },
@@ -138,5 +123,5 @@
       }
     }
   },
-  "defaultProject": "chatbot"
+  "defaultProject": "spring-boot-websocket-chat-application-client"
 }

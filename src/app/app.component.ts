@@ -1,6 +1,7 @@
-import { Component ,OnInit} from '@angular/core';
-import { data } from './chat/chat-dialog/data';
-
+import { Component } from '@angular/core';
+import * as Stomp from 'stompjs';
+import * as SockJS from 'sockjs-client';
+import $ from 'jquery';
 
 @Component({
   selector: 'app-root',
@@ -8,19 +9,30 @@ import { data } from './chat/chat-dialog/data';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'chatbot';
-  data:any[]
+  title = 'OLIS';
+  private stompClient;
 
-  view: any[] = [500, 500];
+  constructor() {
+    this.connect();
+  }
 
-  // options
-  showLegend = true;
+  connect() {
+    let ws = new SockJS('http://127.0.0.1:8085/socket');
+    this.stompClient = Stomp.over(ws);
+    let that = this;
+    this.stompClient.connect({}, function () {
+      that.stompClient.subscribe("/chat", (message) => {
+        if (message.body) {
+          $(".chat").prepend("<div class='alert alert-secondary flex-wrap'>" + message.body + "</div>");
+        }
+      });
+    });
+  }
 
-  colorScheme = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
-  };
-
-constructor(){
-  Object.assign(this,{data})
-
-}}
+  sendMessage(message) {
+    if (message) {
+      this.stompClient.send("/app/send/message", {}, message);
+    }
+    $('#input').val('');
+  }
+}

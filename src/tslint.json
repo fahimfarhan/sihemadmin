@@ -5,14 +5,12 @@
             true,
             "attribute",
             "app",
-          "chat",
             "camelCase"
         ],
         "component-selector": [
             true,
             "element",
             "app",
-          "chat",
             "kebab-case"
         ]
     }
